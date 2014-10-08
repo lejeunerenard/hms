@@ -1,0 +1,23 @@
+{
+  "name": "hms",
+  "version": "0.0.0",
+  "description": "HMS A.K.A. Her Majesty's Ship – Making living with roommates smooth sailing",
+  "main": "bin/app.pl",
+  "scripts": {
+    "test": "prove -l t/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lejeunerenard/hms.git"
+  },
+  "keywords": [
+    "finances",
+    "management"
+  ],
+  "author": "Sean Zellmer @lejeunerenard",
+  "license": "GPL v2.0",
+  "bugs": {
+    "url": "https://github.com/lejeunerenard/hms/issues"
+  },
+  "homepage": "https://github.com/lejeunerenard/hms"
+}

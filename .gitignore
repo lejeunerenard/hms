@@ -1,2 +1,5 @@
 node_modules/
 *.sw[pnroqw]
+local/
+*.db
+cpanfile.snapshot

@@ -1,0 +1,859 @@
+---
+schema:
+  procedures: {}
+  tables:
+    categories:
+      constraints:
+        - deferrable: 1
+          expression: ''
+          fields:
+            - id
+          match_type: ''
+          name: ''
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields: []
+          reference_table: ''
+          type: PRIMARY KEY
+        - deferrable: 1
+          expression: ''
+          fields:
+            - house_id
+          match_type: ''
+          name: categories_fk_house_id
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields:
+            - id
+          reference_table: houses
+          type: FOREIGN KEY
+        - deferrable: 1
+          expression: ''
+          fields:
+            - owner_id
+          match_type: ''
+          name: categories_fk_owner_id
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields:
+            - id
+          reference_table: users
+          type: FOREIGN KEY
+      fields:
+        created_on:
+          data_type: datetime
+          default_value: &1 !!perl/ref
+            =: CURRENT_TIMESTAMP
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: created_on
+          order: 2
+          size:
+            - 32
+        house_id:
+          data_type: integer
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: house_id
+          order: 5
+          size:
+            - 0
+        id:
+          data_type: integer
+          default_value: ~
+          is_auto_increment: 1
+          is_nullable: 0
+          is_primary_key: 1
+          is_unique: 0
+          name: id
+          order: 4
+          size:
+            - 0
+        name:
+          data_type: varchar
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: name
+          order: 6
+          size:
+            - 64
+        owner_id:
+          data_type: integer
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: owner_id
+          order: 1
+          size:
+            - 0
+        updated_on:
+          data_type: datetime
+          default_value: &2 !!perl/ref
+            =: CURRENT_TIMESTAMP
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: updated_on
+          order: 3
+          size:
+            - 32
+      indices:
+        - fields:
+            - house_id
+          name: categories_idx_house_id
+          options: []
+          type: NORMAL
+        - fields:
+            - owner_id
+          name: categories_idx_owner_id
+          options: []
+          type: NORMAL
+      name: categories
+      options: []
+      order: 4
+    expenses:
+      constraints:
+        - deferrable: 1
+          expression: ''
+          fields:
+            - id
+          match_type: ''
+          name: ''
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields: []
+          reference_table: ''
+          type: PRIMARY KEY
+        - deferrable: 1
+          expression: ''
+          fields:
+            - category_id
+          match_type: ''
+          name: expenses_fk_category_id
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields:
+            - id
+          reference_table: categories
+          type: FOREIGN KEY
+        - deferrable: 1
+          expression: ''
+          fields:
+            - house_id
+          match_type: ''
+          name: expenses_fk_house_id
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields:
+            - id
+          reference_table: houses
+          type: FOREIGN KEY
+        - deferrable: 1
+          expression: ''
+          fields:
+            - owner_id
+          match_type: ''
+          name: expenses_fk_owner_id
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields:
+            - id
+          reference_table: users
+          type: FOREIGN KEY
+      fields:
+        amount:
+          data_type: decimal
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: amount
+          order: 9
+          size:
+            - 8
+            - 2
+        category_id:
+          data_type: integer
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: category_id
+          order: 6
+          size:
+            - 0
+        created_on:
+          data_type: datetime
+          default_value: *1
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: created_on
+          order: 2
+          size:
+            - 32
+        description:
+          data_type: text
+          default_value: ~
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: description
+          order: 8
+          size:
+            - 1000
+        house_id:
+          data_type: integer
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: house_id
+          order: 5
+          size:
+            - 0
+        id:
+          data_type: integer
+          default_value: ~
+          is_auto_increment: 1
+          is_nullable: 0
+          is_primary_key: 1
+          is_unique: 0
+          name: id
+          order: 4
+          size:
+            - 0
+        month:
+          data_type: integer
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: month
+          order: 10
+          size:
+            - 0
+        name:
+          data_type: varchar
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: name
+          order: 7
+          size:
+            - 255
+        owner_id:
+          data_type: integer
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: owner_id
+          order: 1
+          size:
+            - 0
+        updated_on:
+          data_type: datetime
+          default_value: *2
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: updated_on
+          order: 3
+          size:
+            - 32
+        year:
+          data_type: integer
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: year
+          order: 11
+          size:
+            - 0
+      indices:
+        - fields:
+            - category_id
+          name: expenses_idx_category_id
+          options: []
+          type: NORMAL
+        - fields:
+            - house_id
+          name: expenses_idx_house_id
+          options: []
+          type: NORMAL
+        - fields:
+            - owner_id
+          name: expenses_idx_owner_id
+          options: []
+          type: NORMAL
+      name: expenses
+      options: []
+      order: 7
+    houses:
+      constraints:
+        - deferrable: 1
+          expression: ''
+          fields:
+            - id
+          match_type: ''
+          name: ''
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields: []
+          reference_table: ''
+          type: PRIMARY KEY
+        - deferrable: 1
+          expression: ''
+          fields:
+            - owner_id
+          match_type: ''
+          name: houses_fk_owner_id
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields:
+            - id
+          reference_table: users
+          type: FOREIGN KEY
+      fields:
+        created_on:
+          data_type: datetime
+          default_value: *1
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: created_on
+          order: 2
+          size:
+            - 32
+        id:
+          data_type: integer
+          default_value: ~
+          is_auto_increment: 1
+          is_nullable: 0
+          is_primary_key: 1
+          is_unique: 0
+          name: id
+          order: 4
+          size:
+            - 0
+        name:
+          data_type: varchar
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: name
+          order: 5
+          size:
+            - 255
+        owner_id:
+          data_type: integer
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: owner_id
+          order: 1
+          size:
+            - 0
+        updated_on:
+          data_type: datetime
+          default_value: *2
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: updated_on
+          order: 3
+          size:
+            - 32
+      indices:
+        - fields:
+            - owner_id
+          name: houses_idx_owner_id
+          options: []
+          type: NORMAL
+      name: houses
+      options: []
+      order: 3
+    months_staying:
+      constraints:
+        - deferrable: 1
+          expression: ''
+          fields:
+            - id
+          match_type: ''
+          name: ''
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields: []
+          reference_table: ''
+          type: PRIMARY KEY
+        - deferrable: 1
+          expression: ''
+          fields:
+            - house_id
+          match_type: ''
+          name: months_staying_fk_house_id
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields:
+            - id
+          reference_table: houses
+          type: FOREIGN KEY
+        - deferrable: 1
+          expression: ''
+          fields:
+            - owner_id
+          match_type: ''
+          name: months_staying_fk_owner_id
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields:
+            - id
+          reference_table: users
+          type: FOREIGN KEY
+        - deferrable: 1
+          expression: ''
+          fields:
+            - user_id
+          match_type: ''
+          name: months_staying_fk_user_id
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields:
+            - id
+          reference_table: users
+          type: FOREIGN KEY
+      fields:
+        created_on:
+          data_type: datetime
+          default_value: *1
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: created_on
+          order: 2
+          size:
+            - 32
+        house_id:
+          data_type: integer
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: house_id
+          order: 6
+          size:
+            - 0
+        id:
+          data_type: integer
+          default_value: ~
+          is_auto_increment: 1
+          is_nullable: 0
+          is_primary_key: 1
+          is_unique: 0
+          name: id
+          order: 4
+          size:
+            - 0
+        month:
+          data_type: integer
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: month
+          order: 7
+          size:
+            - 0
+        owner_id:
+          data_type: integer
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: owner_id
+          order: 1
+          size:
+            - 0
+        percentage:
+          data_type: decimal
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: percentage
+          order: 9
+          size:
+            - 3
+            - 2
+        updated_on:
+          data_type: datetime
+          default_value: *2
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: updated_on
+          order: 3
+          size:
+            - 32
+        user_id:
+          data_type: integer
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: user_id
+          order: 5
+          size:
+            - 0
+        year:
+          data_type: integer
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: year
+          order: 8
+          size:
+            - 0
+      indices:
+        - fields:
+            - house_id
+          name: months_staying_idx_house_id
+          options: []
+          type: NORMAL
+        - fields:
+            - owner_id
+          name: months_staying_idx_owner_id
+          options: []
+          type: NORMAL
+        - fields:
+            - user_id
+          name: months_staying_idx_user_id
+          options: []
+          type: NORMAL
+      name: months_staying
+      options: []
+      order: 5
+    role_user:
+      constraints:
+        - deferrable: 1
+          expression: ''
+          fields:
+            - role
+            - user
+          match_type: ''
+          name: ''
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields: []
+          reference_table: ''
+          type: PRIMARY KEY
+        - deferrable: 1
+          expression: ''
+          fields:
+            - role
+          match_type: ''
+          name: role_user_fk_role
+          on_delete: CASCADE
+          on_update: CASCADE
+          options: []
+          reference_fields:
+            - id
+          reference_table: roles
+          type: FOREIGN KEY
+        - deferrable: 1
+          expression: ''
+          fields:
+            - user
+          match_type: ''
+          name: role_user_fk_user
+          on_delete: CASCADE
+          on_update: CASCADE
+          options: []
+          reference_fields:
+            - id
+          reference_table: users
+          type: FOREIGN KEY
+      fields:
+        created_on:
+          data_type: datetime
+          default_value: *1
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: created_on
+          order: 1
+          size:
+            - 32
+        role:
+          data_type: ''
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 1
+          is_unique: 0
+          name: role
+          order: 3
+          size:
+            - 0
+        updated_on:
+          data_type: datetime
+          default_value: *2
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: updated_on
+          order: 2
+          size:
+            - 32
+        user:
+          data_type: ''
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 1
+          is_unique: 0
+          name: user
+          order: 4
+          size:
+            - 0
+      indices:
+        - fields:
+            - role
+          name: role_user_idx_role
+          options: []
+          type: NORMAL
+        - fields:
+            - user
+          name: role_user_idx_user
+          options: []
+          type: NORMAL
+      name: role_user
+      options: []
+      order: 6
+    roles:
+      constraints:
+        - deferrable: 1
+          expression: ''
+          fields:
+            - id
+          match_type: ''
+          name: ''
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields: []
+          reference_table: ''
+          type: PRIMARY KEY
+      fields:
+        id:
+          data_type: integer
+          default_value: ~
+          is_auto_increment: 1
+          is_nullable: 0
+          is_primary_key: 1
+          is_unique: 0
+          name: id
+          order: 1
+          size:
+            - 0
+        name:
+          data_type: varchar
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: name
+          order: 2
+          size:
+            - 128
+      indices: []
+      name: roles
+      options: []
+      order: 1
+    users:
+      constraints:
+        - deferrable: 1
+          expression: ''
+          fields:
+            - id
+          match_type: ''
+          name: ''
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields: []
+          reference_table: ''
+          type: PRIMARY KEY
+        - deferrable: 1
+          expression: ''
+          fields:
+            - email
+          match_type: ''
+          name: users_email
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields: []
+          reference_table: ''
+          type: UNIQUE
+      fields:
+        created_on:
+          data_type: datetime
+          default_value: *1
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: created_on
+          order: 1
+          size:
+            - 32
+        email:
+          data_type: varchar
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 1
+          name: email
+          order: 4
+          size:
+            - 128
+        email_confirmation_key:
+          data_type: varchar
+          default_value: ~
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: email_confirmation_key
+          order: 11
+          size:
+            - 255
+        first_name:
+          data_type: varchar
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: first_name
+          order: 6
+          size:
+            - 64
+        id:
+          data_type: integer
+          default_value: ~
+          is_auto_increment: 1
+          is_nullable: 0
+          is_primary_key: 1
+          is_unique: 0
+          name: id
+          order: 3
+          size:
+            - 0
+        invitation_key:
+          data_type: varchar
+          default_value: ~
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: invitation_key
+          order: 9
+          size:
+            - 255
+        invited_on:
+          data_type: datetime
+          default_value: ~
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: invited_on
+          order: 8
+          size:
+            - 0
+        is_email_confirmed:
+          data_type: boolean
+          default_value: 0
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: is_email_confirmed
+          order: 10
+          size:
+            - 0
+        last_name:
+          data_type: varchar
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: last_name
+          order: 7
+          size:
+            - 64
+        password:
+          data_type: varchar
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: password
+          order: 5
+          size:
+            - 255
+        updated_on:
+          data_type: datetime
+          default_value: *2
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: updated_on
+          order: 2
+          size:
+            - 32
+      indices: []
+      name: users
+      options: []
+      order: 2
+  triggers: {}
+  views: {}
+translator:
+  add_drop_table: 0
+  filename: ~
+  no_comments: 0
+  parser_args:
+    sources:
+      - Category
+      - Expense
+      - House
+      - MonthsStaying
+      - Role
+      - RoleUser
+      - User
+  parser_type: SQL::Translator::Parser::DBIx::Class
+  producer_args: {}
+  producer_type: SQL::Translator::Producer::YAML
+  show_warnings: 0
+  trace: 0
+  version: 0.11021

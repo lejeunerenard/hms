@@ -1,4 +1,4 @@
-package hms;
+package HMS;
 use Dancer ':syntax';
 
 our $VERSION = '0.1';

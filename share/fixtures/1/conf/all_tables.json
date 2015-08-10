@@ -1,0 +1,41 @@
+{
+   "sets" : [
+      {
+         "class" : "User",
+         "quantity" : "all"
+      },
+      {
+         "quantity" : "all",
+         "class" : "House"
+      },
+      {
+         "class" : "MonthsStaying",
+         "quantity" : "all"
+      },
+      {
+         "class" : "RoleUser",
+         "quantity" : "all"
+      },
+      {
+         "quantity" : "all",
+         "class" : "Expense"
+      },
+      {
+         "quantity" : "all",
+         "class" : "Role"
+      },
+      {
+         "quantity" : "all",
+         "class" : "Category"
+      }
+   ],
+   "belongs_to" : {
+      "fetch" : 0
+   },
+   "might_have" : {
+      "fetch" : 0
+   },
+   "has_many" : {
+      "fetch" : 0
+   }
+}
